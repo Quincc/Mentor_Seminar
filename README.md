@@ -42,10 +42,7 @@
 ### ✨ Задание 4 (*): Репликация с помощью Airflow
 
 - ✅ Настроен DAG в **Apache Airflow**:
-  - Перенос данных из Hive (или HDFS) в ClickHouse.
-  - Запуск по расписанию или вручную.
-  - Проверка поступления данных в ClickHouse.
-- ✅ Код DAG сохранён в папке `/airflow_dags/`.
+- ✅ Код DAG сохранён в папке `/airflow_dags/hive_to_clickhouse_dag.py`.
 
 ---
 
