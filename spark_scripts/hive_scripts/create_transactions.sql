@@ -1,15 +1,14 @@
---CREATE TABLE
+-- CREATE EXTERNAL TABLE
 
-CREATE TABLE IF NOT EXISTS transactions_v2 (
+CREATE EXTERNAL TABLE IF NOT EXISTS transactions_v2 (
     transaction_id INT,
     user_id INT,
-    amount DECIMAL,
+    amount DECIMAL(10,2),
     currency STRING,
     transaction_date TIMESTAMP,
     is_fraud INT
-    )
+)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
-STORED AS TEXTFILE;
-
-LOAD DATA INPATH 'gs://bucket-hse/raw/transactions.csv' INTO TABLE transactions_v2;
+STORED AS TEXTFILE
+LOCATION 's3a://bucket-hse/raw/transactions/';
