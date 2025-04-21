@@ -1,6 +1,6 @@
---CREATE TABLE
+-- CREATE EXTERNAL TABLE
 
-CREATE TABLE logs_v2 (
+CREATE EXTERNAL TABLE IF NOT EXISTS logs_v2 (
     log_id BIGINT,
     transaction_id BIGINT,
     category STRING,
@@ -9,6 +9,5 @@ CREATE TABLE logs_v2 (
 )
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ';'
-STORED AS TEXTFILE;
-
-LOAD DATA INPATH 'gs://bucket-hse/raw/logs.txt' INTO TABLE logs_v2;
+STORED AS TEXTFILE
+LOCATION 's3a://bucket-hse/raw/logs/';
